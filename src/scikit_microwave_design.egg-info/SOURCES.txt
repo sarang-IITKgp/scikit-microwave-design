@@ -7,8 +7,9 @@ src/scikit_microwave_design.egg-info/SOURCES.txt
 src/scikit_microwave_design.egg-info/dependency_links.txt
 src/scikit_microwave_design.egg-info/top_level.txt
 src/skmd/__init__.py
+src/skmd/circuit.py
 src/skmd/data.py
-src/skmd/extraction.py
+src/skmd/extract.py
 src/skmd/network.py
+src/skmd/plot.py
 src/skmd/structure.py
-src/skmd/visualization.py
