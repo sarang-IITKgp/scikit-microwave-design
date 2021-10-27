@@ -7,6 +7,55 @@ import matplotlib as mpl
 mpl.rc('axes',labelsize=24)
 mpl.rc('font',size=24)
 
+def polar_plot_colored_line(theta,R,T,ax, color_axis=None, use_colormap='hsv',linewidth=3,title_name=None):
+		### Plots the line (x,y), with continuous color variation on the axis 'ax'.
+		### according to values in T and colormap as use_colormap
+		### Returns the color map and normalization scale. For plotting colorbar
+		cmap=mpl.cm.get_cmap(use_colormap)
+		#cmap=plt.get_cmap(use_colormap)
+		
+		vmin=T.min()
+		vmax=T.max()
+		
+		norm=mpl.colors.Normalize(vmin=vmin, vmax=vmax)
+		for count in range(len(T)-1):
+			T0=( float(T[count]) + float(T[count+1]) )/2
+			#ax.plot(x[count:count+2],y[count:count+2],color=cmap(norm(T0)),linewidth=linewidth)
+			ax.plot(theta[count:count+2],R[count:count+2],color=cmap(norm(T0)),linewidth=linewidth)
+			
+		if color_axis != None: ## Adds color bar to the given axis. 
+			#c_plot = mpl.colorbar.ColorbarBase(ax=color_axis, cmap=use_colormap, orientation="vertical",norm=norm)
+			c_plot = mpl.colorbar.ColorbarBase(ax=color_axis, cmap=cmap, orientation="vertical",norm=norm)
+			if title_name != None:
+				c_plot.ax.set_title(title_name)
+		return #use_colormap, norm  
+
+
+def plot_colored_line(x,y,T,ax, color_axis=None, use_colormap='jet',linewidth=3,title_name=None,vmin=None,vmax=None):
+    ### Plots the line (x,y), with continuous color variation on the axis 'ax'.
+    ### according to values in T and colormap as use_colormap
+    ### Returns the color map and normalization scale. For plotting colorbar
+    cmap=mpl.cm.get_cmap(use_colormap)
+    
+    if vmin == None: ## Adds color bar to the given axis. 
+        vmin=T.min()
+        
+    if vmax == None: ## Adds color bar to the given axis. 
+        vmax=T.max()
+        
+    #vmin=T.min()
+    #vmax=T.max()
+    
+    norm=mpl.colors.Normalize(vmin=vmin, vmax=vmax)
+    for count in range(len(T)-1):
+        T0=( float(T[count]) + float(T[count+1]) )/2
+        ax.plot(x[count:count+2],y[count:count+2],color=cmap(norm(T0)),linewidth=linewidth)
+        
+    if color_axis != None: ## Adds color bar to the given axis. 
+        c_plot = mpl.colorbar.ColorbarBase(ax=color_axis, cmap=use_colormap, orientation="vertical",norm=norm)
+        if title_name != None:
+            c_plot.ax.set_title(title_name)
+    return #use_colormap, norm  
 
 
 
@@ -107,31 +156,6 @@ def plot_smith_chart(freq,S_p,fig,linewidth=5,use_colormap='hsv'):
 	
 	ax_cmap = fig.add_axes([0.9, 0.2, 0.05, 0.7])
 	
-	def polar_plot_colored_line(theta,R,T,ax, color_axis=None, use_colormap='hsv',linewidth=3,title_name=None):
-		### Plots the line (x,y), with continuous color variation on the axis 'ax'.
-		### according to values in T and colormap as use_colormap
-		### Returns the color map and normalization scale. For plotting colorbar
-		cmap=mpl.cm.get_cmap(use_colormap)
-		#cmap=plt.get_cmap(use_colormap)
-		
-		vmin=T.min()
-		vmax=T.max()
-		
-		norm=mpl.colors.Normalize(vmin=vmin, vmax=vmax)
-		for count in range(len(T)-1):
-			T0=( float(T[count]) + float(T[count+1]) )/2
-			#ax.plot(x[count:count+2],y[count:count+2],color=cmap(norm(T0)),linewidth=linewidth)
-			ax.plot(theta[count:count+2],R[count:count+2],color=cmap(norm(T0)),linewidth=linewidth)
-			
-		if color_axis != None: ## Adds color bar to the given axis. 
-			#c_plot = mpl.colorbar.ColorbarBase(ax=color_axis, cmap=use_colormap, orientation="vertical",norm=norm)
-			c_plot = mpl.colorbar.ColorbarBase(ax=color_axis, cmap=cmap, orientation="vertical",norm=norm)
-			if title_name != None:
-				c_plot.ax.set_title(title_name)
-		return #use_colormap, norm  
-
-
-
 	def smith_const_resistance(ax):
 		theta = np.linspace(0,2*np.pi,100)
 		for r in [0.2,0.5,1,2,5]:
