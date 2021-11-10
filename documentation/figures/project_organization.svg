@@ -503,9 +503,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="1023.8358"
-     inkscape:cy="902.03429"
+     inkscape:zoom="2"
+     inkscape:cx="373.16632"
+     inkscape:cy="1189.3249"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -526,7 +526,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -559,7 +559,7 @@
     </g>
     <g
        id="g4627"
-       transform="translate(73.327379,93.964855)">
+       transform="translate(6.652379,93.964855)">
       <g
          id="g4613">
         <rect
@@ -616,7 +616,7 @@
          id="tspan4636"
          x="203.05801"
          y="117.59076"
-         style="stroke-width:0.26458332px"></tspan></text>
+         style="stroke-width:0.26458332px" /></text>
     <g
        id="g11991"
        transform="translate(-21.544643,-20.410714)">
@@ -1574,5 +1574,38 @@
        inkscape:path-effect="#path-effect13028"
        inkscape:original-d="m 364.65253,147.22681 c 4.52273,-6.09724 26.90345,-0.18376 34.96887,-1.02028 27.06714,-2.70672 56.76667,-16.62248 74.08711,-37.7919 6.39842,-7.82031 8.59557,-49.860425 -6.99295,-57.799661 C 464.2183,7.6691332 400.1913,-3.5893218 349.85581,-9.4512313 c -2.62634,-0.2918143 -32.42257,-0.7483547 -24.6957,-0.7483547"
        sodipodi:nodetypes="cccccc" />
+    <g
+       transform="translate(162.22738,93.964855)"
+       id="g1405">
+      <g
+         id="g1403">
+        <rect
+           ry="16.183058"
+           y="102.77339"
+           x="306.17142"
+           height="87.383896"
+           width="79.0494"
+           id="rect1397"
+           style="opacity:0.23489936;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.53661275;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:8.7741518px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.53994781px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="328.53229"
+           y="102.58948"
+           id="text1401"><tspan
+             sodipodi:role="line"
+             id="tspan1399"
+             x="328.53229"
+             y="102.58948"
+             style="stroke-width:0.53994781px">Signals</tspan></text>
+      </g>
+    </g>
+    <rect
+       style="opacity:0.68918919;fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1407"
+       width="111.78645"
+       height="36.380207"
+       x="17.4625"
+       y="-34.522915" />
   </g>
 </svg>

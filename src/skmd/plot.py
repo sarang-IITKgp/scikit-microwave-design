@@ -7,7 +7,7 @@ import matplotlib as mpl
 mpl.rc('axes',labelsize=24)
 mpl.rc('font',size=24)
 
-def polar_plot_colored_line(theta,R,T,ax, color_axis=None, use_colormap='hsv',linewidth=3,title_name=None):
+def polar_plot_colored_line(theta,R,T,ax, color_axis=None, use_colormap='jet',linewidth=3,title_name=None):
 		### Plots the line (x,y), with continuous color variation on the axis 'ax'.
 		### according to values in T and colormap as use_colormap
 		### Returns the color map and normalization scale. For plotting colorbar
@@ -148,9 +148,9 @@ class SnaptoCursor_polar:
         self.ax.figure.canvas.draw()
 
 
-def plot_smith_chart(freq,S_p,fig,linewidth=5,use_colormap='hsv'):
+def plot_smith_chart(variable,S_p,fig,linewidth=5,use_colormap='hsv'):
 	
-	#from matplotlib.widgets import Slider
+	
 	
 	ax = fig.add_subplot(111,projection='polar')
 	
@@ -179,20 +179,13 @@ def plot_smith_chart(freq,S_p,fig,linewidth=5,use_colormap='hsv'):
 
 	smith_const_resistance(ax)  # Insert constant resistance circles.
 	smith_const_reactance(ax)   # Insert constant reactance circles. 
-	polar_plot_colored_line(np.angle(S_p),np.abs(S_p),freq,ax,color_axis=ax_cmap,linewidth=linewidth,use_colormap=use_colormap)
+	polar_plot_colored_line(np.angle(S_p),np.abs(S_p),variable,ax,color_axis=ax_cmap,linewidth=linewidth,use_colormap=use_colormap)
 	ax.set_rlim([0,1.0])
 	
-	#snap_cursor_2 = SnaptoCursor_polar(ax, freq/1e9, 20*np.log10(NW_filter.S21))
-
-	#fig.canvas.mpl_connect('motion_notify_event', snap_cursor_2.mouse_move)
+	#snap_cursor_2 = SnaptoCursor_polar(ax, freq/1e9, 20*np.log10(NW_filter.
 
 	
-	#snap_cursor_2 = SnaptoCursor_polar(ax,freq/1e9, S_p)
-	#fig.canvas.mpl_connect('motion_notify_event', snap_cursor_2.mouse_move)
-
-
-	
-	return ax
+	return [ax, ax_cmap]
 
 
 

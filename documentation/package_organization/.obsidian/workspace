@@ -4,13 +4,13 @@
     "type": "split",
     "children": [
       {
-        "id": "c83eab3cc8364b6f",
+        "id": "e12f76a789df62ee",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "plot.md",
-            "mode": "source"
+            "file": "To_do.md",
+            "mode": "preview"
           }
         }
       }
@@ -52,7 +52,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "1b55b20c3ecef71c",
@@ -68,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "plot.md",
+                "file": "To_do.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -85,7 +86,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "plot.md",
+                "file": "To_do.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -113,6 +114,16 @@
                 }
               }
             }
+          },
+          {
+            "id": "2cf2b02e4f245cf2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "To_do.md"
+              }
+            }
           }
         ],
         "currentTab": 1
@@ -122,17 +133,17 @@
     "width": 536.6041870117188,
     "collapsed": true
   },
-  "active": "c83eab3cc8364b6f",
+  "active": "e12f76a789df62ee",
   "lastOpenFiles": [
-    "plot.md",
-    "network.md",
     "To_do.md",
-    "skmd.md",
-    "signals.md",
-    "extract.md",
-    "network.pdf",
     "circuit.md",
     "structure.md",
+    "plot.md",
+    "signals.md",
+    "network.md",
+    "skmd.md",
+    "extract.md",
+    "network.pdf",
     "data.md"
   ]
 }
