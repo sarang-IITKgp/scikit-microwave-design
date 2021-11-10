@@ -1,0 +1,138 @@
+{
+  "main": {
+    "id": "1e272838ef7778b9",
+    "type": "split",
+    "children": [
+      {
+        "id": "c83eab3cc8364b6f",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "plot.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2688f8684fc7f0f0",
+    "type": "split",
+    "children": [
+      {
+        "id": "caa5849c4ea267ac",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ce30c04da8b48842",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "2b273e846eaeb90f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "1b55b20c3ecef71c",
+    "type": "split",
+    "children": [
+      {
+        "id": "b07771c247d7a32e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "07b3677a0cb9f46f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "plot.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "121406a254bb4a4c",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "plot.md",
+                "options": {
+                  "collapse-filter": false,
+                  "search": "",
+                  "localJumps": 2,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": true,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": false,
+                  "showArrow": true,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1.57987724070587,
+                  "lineSizeMultiplier": 5,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 1,
+                  "close": true
+                }
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 536.6041870117188,
+    "collapsed": true
+  },
+  "active": "c83eab3cc8364b6f",
+  "lastOpenFiles": [
+    "plot.md",
+    "network.md",
+    "To_do.md",
+    "skmd.md",
+    "signals.md",
+    "extract.md",
+    "network.pdf",
+    "circuit.md",
+    "structure.md",
+    "data.md"
+  ]
+}

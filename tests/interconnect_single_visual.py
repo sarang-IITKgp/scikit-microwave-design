@@ -12,6 +12,7 @@ mpl.rc('font',size=24)
 
 ### Define constant
 
+
 c = md.VELOCITY_OF_LIGHT
 
 
@@ -45,7 +46,7 @@ def transfer_function_interconnect(NW,Rd,ZL):
 #G = 0
 #L = 1.538e-12 * 1e6 # H/meter
 #C = 0.18e-15 * 1e6 # F/meter
-R = 0.01 # Ohm/meter
+R = 1 # Ohm/meter
 G = md.EPS
 L = 0.01e-6 # H/meter
 C = 100e-12 # F/meter
@@ -57,7 +58,7 @@ Z0_f0, gamma_f0 = md.extract.Tx_line_Z0_gamma_from_RLCG(R,L,C,G,2*np.pi*f0)
 beta_f0 = gamma_f0.imag
 lambda_g = 2*np.pi/beta_f0
 
-l_inter = 1*lambda_g # Length of interconnect in meters
+l_inter = 0.5*lambda_g # Length of interconnect in meters
 
 CL = 50e-15 # Load capacitanc in Farad. 
 

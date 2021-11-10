@@ -182,7 +182,7 @@ def from_Tx_line(l,Z0,gamma,omega=np.NaN):
 	"""This function takes the following input paramters,
 	l = length of the transmission line. Should be a scalar.
 	Z0 = Characteristics impedance of the transmission line. Should be a scalar or an array of the same dimensions as beta.
-	beta = propagation constant of the transmission line. Should be the an array of the same dimensions as omega.
+	gamma = propagation constant of the transmission line. Should be the an array of the same dimensions as omega.
 	--------------------------------------------------------------------
 	The function returns the ABCD parameters of a transmission line section of length l.
 	
