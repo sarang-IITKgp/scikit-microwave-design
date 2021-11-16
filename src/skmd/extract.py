@@ -1,6 +1,8 @@
 """Module on extraction of network parameters"""
 import numpy as np
 
+from . import network as nw
+
 
 def Tx_line_Z0_gamma_from_RLCG(R,L,C,G,omega):
 	"""Computes the characteristic impedance and propagation constant gamma = alpha + j beta
@@ -40,7 +42,7 @@ def Tx_line_RLCG_from_Z0_gamma(Z0,gamma,C,G,omega):
 	G_by_l = np.real(gamma/Z0)
 	C_by_l = np.imag(gamma/Z0)/omega
 	
-	Tx_parameters = {R_by_l':R_by_l, 'L_by_l':L_by_l,'G_by_l':G_by_l,'C_by_l':C_by_l }
+	Tx_parameters = {'R_by_l':R_by_l, 'L_by_l':L_by_l,'G_by_l':G_by_l,'C_by_l':C_by_l }
 	
 	return Tx_parameters
 

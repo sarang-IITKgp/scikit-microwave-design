@@ -23,3 +23,23 @@ PICO = 1e-12
 GIGA = 1e9
 MEGA = 1e6
 KILO = 1e3
+
+
+def omega2f(omega):
+	"""Takes frequency in radians/second and return in Hz"""
+	return omega/(2*network.np.pi)
+
+
+def f2omega(f):
+	"""Takes frequency in Hz and returns in radians/second"""
+	return 2*network.np.pi*f
+	
+	
+def dB_mag(S):
+	"""Takes an S-parameter in normal scale and returns
+	20*log10(|S|)."""
+	return 20*network.np.log10(network.np.abs(S))
+	
+	
+	
+	

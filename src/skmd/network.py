@@ -3,7 +3,7 @@
 import numpy as np
 
 class Network:
-	def __init__(self, p11, p12, p21, p22, parameter='abcd',Z0=50,omega=np.NaN):
+	def __init__(self, p11, p12, p21, p22, parameter='abcd',Z0=50,omega=None):
 		"""For conversion from ABCD <-> S, it is assumed that the network has equal and real characteristic impedance on both the ports."""
 		#self.Z01 = Z01 # Terminating impedance at port-1 for conversion [ABCD] <-> [S]. 
 		#self.Z02 = Z02 # Terminating impedance at port-2 for conversion [ABCD] <-> [S]. 
@@ -178,7 +178,7 @@ class Network:
 	
 	
 
-def from_Tx_line(l,Z0,gamma,omega=np.NaN):
+def from_Tx_line(l,Z0,gamma,omega=None):
 	"""This function takes the following input paramters,
 	l = length of the transmission line. Should be a scalar.
 	Z0 = Characteristics impedance of the transmission line. Should be a scalar or an array of the same dimensions as beta.
@@ -202,7 +202,7 @@ def from_Tx_line(l,Z0,gamma,omega=np.NaN):
 	return Network(A, B, C, D,parameter='abcd',omega=omega)
 
 
-def from_series_Z(Z):
+def from_series_Z(Z,omega=None):
 	""" Returns a network object for the following
 	o-----------------|Z|--------------------o
 					[ABCD]
@@ -213,10 +213,10 @@ def from_series_Z(Z):
 	B = Z
 	C = np.zeros_like(Z)
 	D = np.ones_like(Z)
-	return Network(A, B, C, D,parameter='abcd')
+	return Network(A, B, C, D,parameter='abcd',omega=omega)
 	
 
-def from_shunt_Y(Y):
+def from_shunt_Y(Y,omega=None):
 	""" Returns a network object for the following
 	o--------------------------------------o
 					   _|_
@@ -229,10 +229,10 @@ def from_shunt_Y(Y):
 	B = np.zeros_like(Y)
 	C = Y
 	D = np.ones_like(Y)
-	return Network(A, B, C, D,parameter='abcd')
+	return Network(A, B, C, D,parameter='abcd',omega=omega)
 
 
-def from_PI_Y(Y1,Y2,Y3,omega=np.nan):
+def from_PI_Y(Y1,Y2,Y3,omega=None):
 	""" Returns a network object for the following
 					  ____
 	o----------------|_Y3_|---------------------o
@@ -249,7 +249,7 @@ def from_PI_Y(Y1,Y2,Y3,omega=np.nan):
 	return Network(A, B, C, D,parameter='abcd',omega=omega)
 
 
-def from_T_Z(Z1,Z2,Z3):
+def from_T_Z(Z1,Z2,Z3,omega=None):
 	""" Returns a network object for the following
 				____			____
 	o----------|_Z1_|----------|_Z2_|-------o
@@ -263,7 +263,7 @@ def from_T_Z(Z1,Z2,Z3):
 	B = Z1 + Z2 + Z1*Z2/Z3
 	C = 1/Z3
 	D = 1 + Z2/Z3
-	return Network(A, B, C, D,parameter='abcd')
+	return Network(A, B, C, D,parameter='abcd',omega=omega)
 
 #def Tx_line_par_to_Z0_gamma(R,G,L,C,omega):
 	#"""Computes the characteristic impedance and propagation constant gamma = alpha + j beta

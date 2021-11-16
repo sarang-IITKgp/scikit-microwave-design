@@ -6,19 +6,27 @@
 - [x] [[structure]]
 - [x] [[signals]]
 
-- [ ] [[structure#Microstripline]]: Overload `*` operator to implement cascading, when NW is defined. 
-- [ ] [[circuit]]: Overload `*` operator to implement cascading. 
+- [x] In optional variables, change to np.NaN to None. 
+
+
+- [x] [[structure#Microstripline]]: Overload `*` operator to implement cascading, when NW is defined. 
+	- NOT to be done in the current version. 
+	- When operator overloading is done, the thumb rule is that the resultant object should be of the same data type. Cascading two MSL does not give a new MSL. So unless a new user defined 'structure' object is not created, which will have information about cascading, operator overloading the MSL or Gap objects does not makes sense. 
+- [x] [[circuit]]: Overload `*` operator to implement cascading. 
+	- Not to be done in the current version. 
+	- Reason: Same as for operator overloading of objects in Structure module. 
+	
 -----------
 
 ## Demo
 
 #### Structure
-- [ ] Microstrip line design
-- [ ] Microstrip line with gap
-- [ ] filter design: Stub filter
-- [ ] filter design: Band-pass filter with cap
-- [ ] filter desgin: periodic structure. 
-- [ ] filter design: periodic structure with defect.
+- [x] Microstrip line design.
+- [x] Microstrip line with gap.
+- [x] Filter design: Stub filter.
+- [x] filter design: Band-pass filter with gap.
+- [x] filter desgin: periodic structure. 
+- [x] filter design: periodic structure with defect.
 
 
 #### Circuit and extract
@@ -33,7 +41,7 @@
 
 #### Network
 
-- [ ] Interconnect: time-domain visualization
+- [x] Interconnect: time-domain visualization
 	- plot, smith chart, signals
 
 

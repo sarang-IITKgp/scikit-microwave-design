@@ -1,6 +1,11 @@
-"""Module containing physical structures"""
+"""Module containing objects of physical structures"""
 
 import numpy as np
+
+import sys as sys
+
+from . import network as nw
+
 
 class Microstripline:
 	"""
@@ -52,48 +57,55 @@ class Microstripline:
 	- Phase constant: beta (In units of rad/m. Computed when omega is defined.)
 	"""
 	
-	def __init__(self, er,h,l=1, w=np.NaN , Z0 = np.NaN, omega=np.nan, t = np.NaN):
+	def __init__(self, er,h,l=1, w=None , Z0 = None, omega=None, t = None,text_tag='MSL'):
 		self.eta = 120*np.pi # Free space impedance. In units of Ohm. 
-		self.c = 3e8 # velocity of light in units of m/s.
+		self.c = 299792458.0 # velocity of light in units of m/s.
+		#self.c = md.VELOCITY_OF_LIGHT
 		self.er = er
 		self.h = h
 		self.l = l
 		#self.w = w
+		self.text_tag = text_tag
 
 		self.omega = omega
 		#self.t = t # Effect of conductor thickness not implemented yet. 
 		
-		print("============ \n Microstrip line defined")
+		print(" ============ \n Defining ",text_tag)
 		
-		if not np.isnan(w):
+		#if not np.isnan(w):
+		if w is not None:
 			self.w = w
-			print('MSL defined with width.')
+			print(self.text_tag,'defined with width.')
 			self.fun_msl_w_to_Z0()
 			
-		elif not np.isnan(Z0):
-			print('MSL defined with Z0')
+		#elif not np.isnan(Z0):
+		elif Z0 is not None:
+			print(self.text_tag,'defined with Z0')
 			self.Z0 = Z0
 			self.fun_msl_Z0_to_w()
 		
 		else:
 			#print("Error. Neither of W or Z0 defined.")
-			sys.exit("Error in defining microstrip line ...!! Neither of W or Z0 defined. Abort...!!")
+			sys.exit("Error in defining microstrip line ...!! Neither of W or Z0 defined. Abort...!! \n ==============")
+			#print("==============")
 			
 		self.vp = self.c/np.sqrt(self.er_eff)
 		
-		if not np.all(np.isnan(self.omega)):
+		#if not np.all(np.isnan(self.omega)):
+		if omega is not None:
 			self.beta = self.omega/self.vp
 			self.lambda_g = 2*np.pi/self.beta
-			print('Frequency defined.')
-			self.NW = Network_Tx_line(l=self.l,Z0=self.Z0,gamma=1j*self.beta)
+			self.NW = nw.from_Tx_line(l=self.l,Z0=self.Z0,gamma=1j*self.beta)
+			print('Frequency given. Network defined.')
 		
+		print("==============")
 		
 	def fun_add_frequency(self,omega):
 		self.omega = omega
 		self.beta = self.omega/self.vp
 		self.lambda_g = 2*np.pi/self.beta
 		print('Frequency added (override old values)')
-		self.NW = Network_Tx_line(l=self.l,Z0=self.Z0,gamma=1j*self.beta)
+		self.NW = nw.from_Tx_line(l=self.l,Z0=self.Z0,gamma=1j*self.beta)
 		
 		
 	def fun_msl_w_to_Z0(self,):#er,h,w):
@@ -141,7 +153,22 @@ class Microstripline:
 		
 		#return self.er_eff, self.W
 
-	
+	def print_specs(self,):
+		print('---------',self.text_tag, 'Specifications---------')
+		print('-----Substrate-----')
+		print('Epsilon_r',self.er)
+		print('substrate thickness',self.h)
+		print('-------------------')
+		print('line width W=',self.w)
+		print('Characteristics impedance=',self.Z0)
+		print('Length of the line = ',self.l)
+		print('Effective dielectric constant er_eff = ',self.er_eff)
+		print('Frequency defined ?: ', self.omega is not None )
+		print('-------------------')
+
+		
+		
+		
 
 #End_Microstripline_Class:
 
@@ -168,12 +195,13 @@ class MSL_gap:
 	- Microwave network: NW. Object of the Network class. Computed only when omega is defined. 
 	
 	Based on Section 4.3.1.3 of the Hong & Lancaster book. 
-	- Point to cross-check. Whether log in the book means log10 or natural log. In the current implementation, log10 is assumed. 
+	
 	"""
 	
-	def __init__(self, d_gap, w, er, h, omega=np.nan):
+	def __init__(self, d_gap, w, er, h, omega=None,text_tag='MSL Gap'):
 		
-		print('Gap Class Warning: capacitance values may be in accurate')
+		print(" ============ \n Defining ",text_tag)
+		print('Object of Class Gap: >=> Warning: capacitance values may be inaccurate')
 		self.d = d_gap
 		self.w = w
 		self.er = er
@@ -198,7 +226,23 @@ class MSL_gap:
 		self.Cp = 0.5*Ce
 		self.Cg = 0.5*Co - 0.25*Ce
 		
-		if not np.all(np.isnan(self.omega)):
+		#if not np.all(np.isnan(self.omega)):
+		if self.omega is not None:
+			self.NW = nw.from_PI_Y(1j*self.omega*self.Cp,1j*self.omega*self.Cp,1j*self.omega*self.Cg)
+			print('Frequency given. Network defined.')
 			
-			self.NW = Network_PI_Y(1j*self.omega*self.Cp,1j*self.omega*self.Cp,1j*self.omega*self.Cg)
+		print("==============")
+	def print_specs(self,):
+		print('---------',self.text_tag, 'Specifications---------')
+		print('-----Substrate-----')
+		print('Epsilon_r',self.er)
+		print('substrate thickness',self.h)
+		print('-------------------')
+		print('line width W=',self.w)
+		
+		print('Gap length = ',self.d)
+		
+		print('Frequency defined ?: ', not np.all(np.isnan(self.omega)))
+		print('-------------------')
+
 		

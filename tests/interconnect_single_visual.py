@@ -247,7 +247,7 @@ ax2_f3.grid()
 #ax2_f3.legend()
 
 ####################### Animate #############################
-flag_animate = 0
+flag_animate = 1
 flag_save = 0
 
 if flag_animate == 1:

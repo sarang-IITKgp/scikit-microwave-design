@@ -52,7 +52,7 @@ def plot_colored_line(x,y,T,ax, color_axis=None, use_colormap='jet',linewidth=3,
         ax.plot(x[count:count+2],y[count:count+2],color=cmap(norm(T0)),linewidth=linewidth)
         
     if color_axis != None: ## Adds color bar to the given axis. 
-        c_plot = mpl.colorbar.ColorbarBase(ax=color_axis, cmap=use_colormap, orientation="vertical",norm=norm)
+        c_plot = mpl.colorbar.ColorbarBase(ax=color_axis, cmap=cmap, orientation="vertical",norm=norm)
         if title_name != None:
             c_plot.ax.set_title(title_name)
     return #use_colormap, norm  
@@ -185,7 +185,7 @@ def plot_smith_chart(variable,S_p,fig,linewidth=5,use_colormap='hsv'):
 	#snap_cursor_2 = SnaptoCursor_polar(ax, freq/1e9, 20*np.log10(NW_filter.
 
 	
-	return [ax, ax_cmap]
+	return ax
 
 
 
