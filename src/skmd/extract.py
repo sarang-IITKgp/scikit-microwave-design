@@ -4,6 +4,7 @@ import numpy as np
 from . import network as nw
 
 
+
 def Tx_line_Z0_gamma_from_RLCG(R,L,C,G,omega):
 	"""Computes the characteristic impedance and propagation constant gamma = alpha + j beta
 	Input:-
@@ -47,7 +48,7 @@ def Tx_line_RLCG_from_Z0_gamma(Z0,gamma,C,G,omega):
 	return Tx_parameters
 
 
-def Tx_line_from_NW(NW,l,omega=np.nan):
+def Tx_line_from_NW(NW,l,omega=None):
 	"""This function takes the following input paramters,
 	NW := Object of Class Network
 	l := length of the transmission line, in units of meter. Should be a scalar.
@@ -78,11 +79,13 @@ def Tx_line_from_NW(NW,l,omega=np.nan):
 	Z0 = np.sqrt(NW.B/NW.C)
 	gamma = (1/l)*np.arccosh(NW.A)
 	
-	if not np.all(np.isnan(NW.omega)):
+	#if not np.all(np.isnan(NW.omega)):
+	if NW.omega is None:
 		"""Frequency is defined in NW. This supersedes omega given in the function call"""
 		omega = NW.omega
 		
-	if not np.all(np.isnan(omega)):
+	#if not np.all(np.isnan(omega)):
+	if omega is not None:
 		"""The following will be executed if the frequency is defined in either NW or during the function call."""
 		R_by_l = np.real(Z0*gamma)
 		L_by_l = np.imag(Z0*gamma)/omega
@@ -93,7 +96,7 @@ def Tx_line_from_NW(NW,l,omega=np.nan):
 		Tx_parameters = {'Z0':Z0, 'gamma':gamma, 'R_by_l':R_by_l, 'L_by_l':L_by_l,'G_by_l':G_by_l,'C_by_l':C_by_l }
 		
 	else: 
-		Tx_parameters = {'Z0':Z0, 'gamma':gamma,'R_by_l':np.nan, 'L_by_l':np.nan,'G_by_l':np.nan,'C_by_l':np.nan }
+		Tx_parameters = {'Z0':Z0, 'gamma':gamma,'R_by_l':None, 'L_by_l':None,'G_by_l':None,'C_by_l':None }
 		
 	
 	return Tx_parameters
@@ -101,16 +104,32 @@ def Tx_line_from_NW(NW,l,omega=np.nan):
 
 
 
-def Pi_from_NW():
+def T_model_from_NW(NW):
+	"""Returns Z1, Z2, and Z3, computed from the [ABCD] parameters of
+	the NW (object of Network Class). 
+				____			____
+	o----------|_Z1_|----------|_Z2_|-------o
+						_|__         
+					   |_Z3_|       
+						 |  
+	o--------------------------------------o"""
 	
-	
-	
-	
-	return
-	
-def T_from_NW():
-	
-	return
-	
-	
+	Z3 = 1/NW.C
+	Z1 = (NW.A-1)/NW.C
+	Z2 = (NW.D-1)/NW.C
+	return Z1, Z2, Z3
 
+def PI_model_from_NW(NW):
+	"""Returns Y1, Y2, and Y3, computed from the [ABCD] parameters of
+	the NW (object of Network Class). 
+					  ____
+	o----------------|_Y3_|---------------------o
+			   _|__         _|__
+			  |_Y1_|       |_Y2_|
+				|  			 |
+	o-------------------------------------------o"""
+	
+	Y3 = 1/NW.B
+	Y2 = (NW.A-1)/NW.B
+	Y1 = (NW.D-1)/NW.C
+	return Y1, Y2, Y3

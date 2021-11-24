@@ -1,4 +1,4 @@
-- [ ] [[circuit]]
+- [x] [[circuit]]
 - [ ] [[data]]
 - [x] [[extract]]
 - [x] [[network]]
@@ -19,6 +19,8 @@
 -----------
 
 ## Demo
+
+#### Create Jupyter notebooks.
 
 #### Structure
 - [x] Microstrip line design.

@@ -5,6 +5,7 @@ from . import network as nw
 from . import extract as ex
 
 
+
 class Tx_line_Z0_gamma:
 	"""Creates on object of the Transmission line.
 	Attributes include: 
@@ -62,7 +63,7 @@ class PI_ckt:
 	Atrributed include:
 	
 	"""
-	def __init__(self,Y1,Y2,Y3,NW=np.NaN,omega=np.NaN):
+	def __init__(self,Y1,Y2,Y3,NW=None,omega=None):
 		""" Returns a network object for the following
 						  ____
 		o----------------|_Y3_|---------------------o
@@ -83,7 +84,7 @@ class PI_ckt:
 		C = Y1 + Y2 + Y1*Y2/Y3
 		D = 1 + Y1/Y3
 		#self.NW = nw.Network(A, B, C, D,parameter='abcd',omega=omega)
-		if NW == np.nan:
+		if NW is None:
 			self.NW = nw.Network(A, B, C, D,parameter='abcd',omega=self.omega)
 		else:
 			self.NW = NW
@@ -94,7 +95,7 @@ class T_ckt:
 	Attributed include:
 	
 	"""
-	def __init__(Z1,Z2,Z3,NW=np.NaN,omega=np.NaN):
+	def __init__(Z1,Z2,Z3,NW=None,omega=None):
 		""" Returns a network object for the following
 					____			____
 		o----------|_Z1_|----------|_Z2_|-------o
@@ -115,7 +116,7 @@ class T_ckt:
 		C = 1/Z3
 		D = 1 + Z2/Z3
 		
-		if NW == np.nan:
+		if NW == None:
 			self.NW = nw.Network(A, B, C, D,parameter='abcd',omega=self.omega)
 		else:
 			self.NW = NW

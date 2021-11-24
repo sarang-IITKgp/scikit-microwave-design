@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "To_do.md",
-            "mode": "preview"
+            "file": "network.md",
+            "mode": "source"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "To_do.md",
+                "file": "network.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -85,7 +85,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "To_do.md",
+                "file": "network.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -120,7 +120,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "To_do.md"
+                "file": "network.md"
               }
             }
           }
@@ -133,12 +133,12 @@
   },
   "active": "900de18f9eb09709",
   "lastOpenFiles": [
+    "network.md",
+    "circuit.md",
     "To_do.md",
     "extract.md",
     "data.md",
     "network.pdf",
-    "network.md",
-    "circuit.md",
     "structure.md",
     "plot.md",
     "signals.md",
