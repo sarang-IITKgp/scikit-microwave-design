@@ -9,7 +9,12 @@ class Network:
 		#self.Z02 = Z02 # Terminating impedance at port-2 for conversion [ABCD] <-> [S]. 
 		self.Z0 = Z0
 		self.omega = omega
-		self.freq = omega/(2*np.pi)
+		if self.omega is not None:
+			self.freq = omega/(2*np.pi)
+		else :
+			self.freq = None
+		
+			
 		if parameter == 's' or parameter == 'S':
 			
 			self.S11 = p11

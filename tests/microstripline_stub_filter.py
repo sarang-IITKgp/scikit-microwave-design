@@ -121,8 +121,8 @@ fig4 = plt.figure('Smith-chart')
 
 ax1_f4 = md.plot.plot_smith_chart(md.omega2f(omega)/md.GIGA,NW_filter.S21,fig4,use_colormap='inferno',linewidth=10)
 
-#snap_cursor_2 = md.plot.SnaptoCursor_polar(ax1_f4,md.omega2f(omega), NW_filter.S21)
-#fig4.canvas.mpl_connect('motion_notify_event', snap_cursor_2.mouse_move)
+snap_cursor_2 = md.plot.SnaptoCursor_polar(ax1_f4,md.omega2f(omega), NW_filter.S21)
+fig4.canvas.mpl_connect('motion_notify_event', snap_cursor_2.mouse_move)
 
 
 

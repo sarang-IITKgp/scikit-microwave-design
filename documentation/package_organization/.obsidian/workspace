@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "network.md",
+            "file": "To_do.md",
             "mode": "source"
           }
         }
@@ -26,14 +26,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ce30c04da8b48842",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {}
-            }
-          },
-          {
             "id": "2b273e846eaeb90f",
             "type": "leaf",
             "state": {
@@ -47,8 +39,17 @@
                 "sortOrder": "alphabetical"
               }
             }
+          },
+          {
+            "id": "281cc9cbe606bab3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -68,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "network.md",
+                "file": "To_do.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -85,7 +86,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "network.md",
+                "file": "To_do.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -108,7 +109,7 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 1,
+                  "scale": 0.6989606412938231,
                   "close": true
                 }
               }
@@ -120,7 +121,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "network.md"
+                "file": "To_do.md"
               }
             }
           }
@@ -129,13 +130,13 @@
       }
     ],
     "direction": "horizontal",
-    "width": 369.1679992675781
+    "width": 100
   },
   "active": "900de18f9eb09709",
   "lastOpenFiles": [
+    "To_do.md",
     "network.md",
     "circuit.md",
-    "To_do.md",
     "extract.md",
     "data.md",
     "network.pdf",

@@ -104,7 +104,7 @@ class Microstripline:
 		self.omega = omega
 		self.beta = self.omega/self.vp
 		self.lambda_g = 2*np.pi/self.beta
-		print('Frequency added (override old values)')
+		print('Frequency added (override old values). Network defined.')
 		self.NW = nw.from_Tx_line(l=self.l,Z0=self.Z0,gamma=1j*self.beta)
 		
 		
