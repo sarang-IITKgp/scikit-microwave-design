@@ -12,4 +12,5 @@ src/skmd/data.py
 src/skmd/extract.py
 src/skmd/network.py
 src/skmd/plot.py
+src/skmd/signals.py
 src/skmd/structure.py
