@@ -22,7 +22,7 @@ class Network:
 			self.S21 = p21
 			self.S22 = p22
 			
-			
+			self.S_to_ABCD()
 			#print('S defined')
 		
 		if parameter == 'abcd' or parameter == 'ABCD':
@@ -119,7 +119,7 @@ class Network:
 		B = A1*B2 + B1*D2
 		C = C1*A2 + D1*C2
 		D = C1*B2 + D1*D2
-		return Network(A,B,C,D,parameter='abcd')
+		return Network(A,B,C,D,parameter='abcd',omega=self.omega)
        
         
 	def __pow__(self,N):
@@ -152,7 +152,7 @@ class Network:
 		C = (-C1*A2 + A1*C2)/Delta_1
 		D = (-C1*B2 + A1*D2)/Delta_1
 				
-		return Network(A,B,C,D,parameter='abcd')
+		return Network(A,B,C,D,parameter='abcd',omega=self.omega)
 	
 	def __lshift__(self,other):
 		"""De-embedding from right.
@@ -178,7 +178,7 @@ class Network:
 		D = (-C1*B2 + D1*A2)/Delta_2
 		
 				
-		return Network(A,B,C,D,parameter='abcd')
+		return Network(A,B,C,D,parameter='abcd',omega=self.omega)
 	# End class Network:
 	
 	

@@ -6,6 +6,10 @@ import skmd.plot
 import skmd.structure 
 import skmd.signals
 
+
+__version__ = '00.01.01'
+
+
 EPSILON_0 = 8.8541878128e-12 # F/m
 MU_0 = 1.25663706212e-6 # H/m
 VELOCITY_OF_LIGHT = 299792458.0

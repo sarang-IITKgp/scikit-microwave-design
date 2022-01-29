@@ -17,16 +17,7 @@ def load_HFSS_CSV(filename, parameter = 's',Z0=50):
 	path=dirname(realpath(sys.argv[0])) ## get path of the current directory.
 	
 	fullname = path+'/'+filename
-	print(path)
 
-	print('hahaha')
-	print(path1)
-
-	print('hahaha')
-	print(filename)
-	print('hahaha')
-	print(fullname)
-	
 	
 	with open(fullname, newline='') as csvfile: # Read Real S. 
 		reader = csv.DictReader(csvfile)
