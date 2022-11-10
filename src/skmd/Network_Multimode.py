@@ -82,8 +82,8 @@ class Network:
 		
 		for f in range(0,self.freqpts,1):
 			
-			Yin[f] = (self.C[f]+(YL[f]@(self.D[f]*U)))@(np.linalg.inv((self.A[f]*U)+(YL[f]@self.B[f])));
 			
+			Yin[f] = (self.C[f]+(self.D[f]@YL[f]))@(np.linalg.inv(self.A[f]+(self.B[f]@YL[f])));
 			
 		return Yin
 		
@@ -203,6 +203,7 @@ def from_Tx_line(L,Z0,OmegaMat,Vp,Nhar,freqpts):
 	
 		A1[f]=np.cos(beta*L)*U; 
 		B1[f]=1j*Z0*np.sin(beta*L)*U; 
+		#B1[f]=1j*Z0*np.sin(beta*L)*U; 
 		C1[f]=1j*Y0*np.sin(beta*L)*U; 
 		D1[f]=np.cos(beta*L)*U; 
 		
